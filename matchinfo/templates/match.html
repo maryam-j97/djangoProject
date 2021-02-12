@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Football Match STATS</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Russo+One&display=s43p');
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Russo One', sans-serif !important;
+        }
+
+        .container {
+            width: 550px;
+            margin: 50px auto;
+
+        }
+
+        .app {
+            width: 560px;
+            height: 200px;
+            background: #f8f8f8;
+            border-left: 11px solid #034693;
+            border-right: 11px solid #e89e01;
+            border-radius: 20px;
+
+        }
+
+        div.header {
+            position: relative;
+            width: 100%;
+            height: 140px;
+        }
+
+        span.team {
+            position: relative;
+            width: 45%;
+            height: 100%;
+            display: inline-block;
+            text-align: center;
+        }
+
+        span.team-left {
+            float: left;
+        }
+
+        span.team-right {
+            float: right;
+        }
+
+        span.team span.name {
+            width: 70%;
+            display: block;
+            text-transform: uppercase;
+            font-weight: 500;
+            letter-spacing: 1px;
+            color: rgba(0, 0, 0, 0.8);
+            padding: 5% 15% 0% 15%;
+
+        }
+
+        span.stats {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            display: inline-block;
+            left: 0;
+            font-size: 34px;
+            text-align: center;
+            font-weight: 1000;
+            letter-spacing: 2px;
+            color: black;
+            line-height: 150px;
+        }
+
+        span.team img.logo {
+            width: 90px;
+            margin-top: 20px;
+        }
+
+        div.body {
+            position: relative;
+        }
+
+        .ttt {
+            padding: 30px;
+            margin-left: 228px;
+            box-sizing: unset;
+            background-color: #d6a02a;
+            border-radius: 15%;
+            width: 50%;
+
+        }
+
+        .table {
+            margin: 10% 20% 10% 20%;
+            text-align: center;
+            color: #fffccf;
+            font-size: 20px;
+            position: relative;
+        {#padding: 10px;#} width: 200px;
+            height: 150px;
+        }
+
+        .center {
+            text-align: center;
+        }
+
+        section {
+            width: 40%;
+            font-family: cursive;
+
+
+        }
+
+        thead {
+            position: absolute;
+            top: 10px;
+        }
+
+        tbody {
+            margin: 0px;
+            padding: 0px;
+            position: absolute;
+            top: 70px;
+        }
+
+        .cen {
+            margin-left: 25%;
+        }
+    </style>
+
+</head>
+<body>
+{% for home in home %}
+    {% for away in away %}
+        <div class="container">
+
+            <div class="app ">
+                <div class="header">
+            <span class="team team-left">
+              <img src="https://seeklogo.net/wp-content/uploads/2012/12/manchester-united-logo-vector-400x400.png"
+                   alt="" class="logo">
+              <span class="name">{{ away.Nameteam }}</span>
+            </span>
+                    <span class="stats"> {{ home.score }} : {{ away.score }}</span>
+                    <span class="team team-right">
+              <img src="https://seeklogo.net/wp-content/uploads/2011/08/liverpool-logo-vector.png" alt="Liverpool"
+                   class="logo">
+              <span class="name">{{ home.Nameteam }}</span>
+            </span>
+                </div>
+                <div class="body">
+            <span class="center"> VS </span>
+
+                    <span class="sec"></span>
+                    <span class="time-bar">
+
+          </span>
+                </div>
+            </div>
+        </div>
+        <section class="cen">
+            <div class="ttt">
+                <table class="table ">
+                    <thead>
+                    <tr>
+
+                        <th scope="col"> CHAMPIONS LEAGUE</th>
+
+                    </tr>
+
+                    </thead>
+
+                    <tbody>
+                    <tr>
+
+                    <th scope="row">{{ home.pos }}</th>
+
+                    <td>Appearances</td>
+
+                    <td>{{ away.pos }}</td>
+
+                    </tr>
+                    <tr>
+                        <th scope="row">{{ home.red_card }}</th>
+                        <td>Yallow card</td>
+                        <td>{{ away.ya_card }}</td>
+
+                    </tr>
+                    <tr>
+                        <th scope="row">{{ home.ya_card }}</th>
+                        <td>Red card</td>
+                        <td>{{ away.red_card }}</td>
+
+                    </tr>
+
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    {% endfor %}
+{% endfor %}
+
+
+</body>
+</html>
